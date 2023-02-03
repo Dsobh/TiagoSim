@@ -1,9 +1,13 @@
 #!/bin/bash
 
-cd ~/ros2_ws/src
-git clone https://github.com/pal-robotics/tiago_simulation.git
+mkdir -p ~/tiago_public_ws/src
+cd ~/tiago_public_ws
 
-cd ~/ros2_ws
+vcs import --input https://raw.githubusercontent.com/pal-robotics/tiago_tutorials/humble-devel/tiago_public.rosinstall src
 
-apt-get upgrade -y
-colcon build
+rosdep init
+rosdep update
+rosdep install --from-paths src -y --ignore-src
+
+source /opt/ros/humble/setup.bash
+colcon build --symlink-install

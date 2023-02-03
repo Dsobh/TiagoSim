@@ -1,9 +1,7 @@
 #!/bin/bash
 
-apt update && apt upgrade
-
-pip3 install -U catkin_tools
-pip3 install -U rosdep
+apt-get install -y git 
+apt-get install -y python3-vcstool 
+apt-get install -y python3-rosinstall 
+apt-get install -y python3-rosdep 
 apt-get install -y python3-colcon-common-extensions
-
-
