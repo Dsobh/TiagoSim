@@ -6,4 +6,4 @@ apt update
 apt install -y ros-humble-ros-base
 
 #Tiago packages instalation
-apt-get install -y ros-humble-tiago*
+apt install -y ros-humble-tiago*

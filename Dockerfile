@@ -1,14 +1,14 @@
-FROM fredblgr/ubuntu-novnc:22.04
+FROM tiryoh/ros2-desktop-vnc:humble
 USER root
 ARG DEBIAN_FRONTEND=noninteractive
-
-#ROS2 (Humble) from packet installation
-COPY ./src/install/ros2.sh /home/ros2.sh
-RUN chmod +x /home/ros2.sh && /home/ros2.sh
 
 #Installation of system tools
 COPY ./src/install/system_utils.sh /home/system_utils.sh
 RUN chmod +x /home/system_utils.sh && /home/system_utils.sh
+
+#ROS2 (Humble) from packet installation
+COPY ./src/install/ros2.sh /home/ros2.sh
+RUN chmod +x /home/ros2.sh && /home/ros2.sh
 
 #Installation of needed packages
 COPY ./src/install/ros_packages.sh /home/ros_packages.sh
