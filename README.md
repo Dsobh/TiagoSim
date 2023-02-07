@@ -5,7 +5,7 @@
 - Run Docker with no-vnc
 
 ```
-docker run -p 6080:80 -p 5900:5900 <<repo_name>>:<<tag_name>>
+docker run -p 6080:80 --shm-size=512m --security-opt seccomp=unconfined <<repo_name>>:<<tag-name>>
 ```
 
 Browse: http://127.0.0.1:6080
