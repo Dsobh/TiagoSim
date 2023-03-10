@@ -1,14 +1,41 @@
 # TiagoSim
 
+This docker file offers a docker image that contains official simulation of robot [`TiaGo`](#https://github.com/pal-robotics/tiago_simulation/tree/humble-devel) (Pal robotics) for Ros 2 `Humble`.
+
+## Prerequisites
+
+In order to launch the docker image some software is needed:
+
+- Gazebo and Rviz installed in host machine.
+- [Rocker](#https://github.com/osrf/rocker).
+- Nvidia Docker support.
+
+In next section the installation instructions of rocker and nvidia docker support are provided.
+
 ## Instructions
 
-- Run Docker with no-vnc
+- Install Nvidia Docker Support:
 
 ```
-docker run -p 6080:80 --shm-size=512m --security-opt seccomp=unconfined <<repo_name>>:<<tag-name>>
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)    && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -    && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt-get update
+sudo apt-get install -y nvidia-docker2
+sudo systemctl restart docker
 ```
 
-Browse: http://127.0.0.1:6080
+- Install Rocker:
+
+```
+sudo apt-get install python3-rocker
+```
+
+- Run Docker with rocker
+
+Docker image is launched using rocker. This allows to run the simulation inside the docker, but access it locally  (with `gazebo` and `rviz`).
+
+```
+sudo rocker --home --user --nvidia --x11 --privileged <repository_name>:<tag_name>
+```
 
 ## Launch Simulation
 
