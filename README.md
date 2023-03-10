@@ -1,13 +1,15 @@
 # TiagoSim
 
-This docker file offers a docker image that contains official simulation of robot [`TiaGo`](#https://github.com/pal-robotics/tiago_simulation/tree/humble-devel) (Pal robotics) for Ros 2 `Humble`.
+This docker file offers a docker image that contains official simulation of robot [`TiaGo`](https://github.com/pal-robotics/tiago_simulation/tree/humble-devel) (Pal robotics) for Ros 2 `Humble`.
+
+Also a builded image can be found in [docker hub](https://hub.docker.com/repository/docker/dsobh/tiagosim/general)
 
 ## Prerequisites
 
 In order to launch the docker image some software is needed:
 
 - Gazebo and Rviz installed in host machine.
-- [Rocker](#https://github.com/osrf/rocker).
+- [Rocker](https://github.com/osrf/rocker).
 - Nvidia Docker support.
 
 In next section the installation instructions of rocker and nvidia docker support are provided.
